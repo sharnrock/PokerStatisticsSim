@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokerSimConsole", "PokerSimConsole\PokerSimConsole.csproj", "{1C2ECD9C-7476-42ED-8C30-60987219466A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{6FDDC5BE-C840-4544-999B-0739D1258C79}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C2ECD9C-7476-42ED-8C30-60987219466A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C2ECD9C-7476-42ED-8C30-60987219466A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C2ECD9C-7476-42ED-8C30-60987219466A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C2ECD9C-7476-42ED-8C30-60987219466A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FDDC5BE-C840-4544-999B-0739D1258C79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FDDC5BE-C840-4544-999B-0739D1258C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FDDC5BE-C840-4544-999B-0739D1258C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FDDC5BE-C840-4544-999B-0739D1258C79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A2BA0EA-030C-498D-B0A3-F65B8150EEE1}
+	EndGlobalSection
+EndGlobal
