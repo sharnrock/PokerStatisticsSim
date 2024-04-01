@@ -1,5 +1,3 @@
-using PokerSimConsole;
-
 namespace Tests
 {
     public class OnePairTest

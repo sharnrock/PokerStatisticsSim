@@ -1,6 +1,4 @@
-﻿using Windows.ApplicationModel.Chat;
-
-namespace PokerSimConsole
+﻿namespace PokerSimConsole
 {
     public class CardValue
     {
@@ -8,25 +6,37 @@ namespace PokerSimConsole
 
         public CardValue(int value)
         {
-            if (!IsValidValue(value))
+            if (!IsBetweenTwoAndAce(value))
                 throw new ArgumentException("Value must be between 2 and 14");
 
             this.value = value;
         }
 
-        private static bool IsValidValue(int value)
-        {
-            return !(value < 2 || value > 14);
-        }
+        private static bool IsBetweenTwoAndAce(int value)
+        { return !(value < 2 || value > 14); }
 
-        public int CompareTo(CardValue? other)
-        {
-            throw new NotImplementedException();
-        }
+        public static bool operator ==(CardValue a, CardValue b)
+        { return a.value == b.value; }
+
+        public static bool operator !=(CardValue a, CardValue b)
+        { return !a.Equals(b); }
+
+        public static bool operator <(CardValue a, CardValue b)
+        { return a.value < b.value; }
+
+        public static bool operator >(CardValue a, CardValue b)
+        { return a.value > b.value; }
+
+        public static bool operator >=(CardValue a, CardValue b)
+        { return a.value >= b.value; }
+
+        public static bool operator <=(CardValue a, CardValue b)
+        { return a.value <= b.value; }
 
         public bool Equals(CardValue? other)
         {
-            return other != null && other.value == this.value;
+            ArgumentNullException.ThrowIfNull(other);
+            return other == this;
         }
 
         public override string? ToString()
@@ -36,6 +46,26 @@ namespace PokerSimConsole
             else if (value == 12) return "Q";
             else if (value == 13) return "K";
             else return value.ToString();
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj is null)
+            {
+                return false;
+            }
+
+            return this == ((CardValue)obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

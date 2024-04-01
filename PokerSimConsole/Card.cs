@@ -1,49 +1,30 @@
 ﻿namespace PokerSimConsole
 {
-    public struct Card : IEquatable<Card>
+    public class Card(Suit suit, CardValue value) : IEquatable<Card>
     {
-        public Suit suit;
-        public CardValue value;
+        private readonly Suit suit = suit;
+        private readonly CardValue value = value;
 
-        public Card(Suit suit, CardValue value)
-        {
-            this.suit = suit;
-            this.value = value;
-        }
+        public CardValue Value { get { return value; } }
+        public Suit Suit { get { return suit; } }
 
-        public override readonly string ToString()
+        public override string ToString()
         {
-            return "";
+            return suit.ToString() + value.ToString();
         }
 
         public static bool operator ==(Card? a, Card? b)
         {
-            if (a is null)
-            {
-                throw new ArgumentNullException(nameof(a));
-            }
-
-            if (b is null)
-            {
-                throw new ArgumentNullException(nameof(b));
-            }
-
-            return false;
+            ArgumentNullException.ThrowIfNull(a);
+            ArgumentNullException.ThrowIfNull(b);
+            return a.Value == b.Value;
         }
 
         public static bool operator !=(Card? a, Card? b)
         {
-            if (a is null)
-            {
-                throw new ArgumentNullException(nameof(a));
-            }
-
-            if (b is null)
-            {
-                throw new ArgumentNullException(nameof(b));
-            }
-
-            return false;
+            ArgumentNullException.ThrowIfNull(a);
+            ArgumentNullException.ThrowIfNull(b);
+            return !(a == b);
         }
 
         public static bool operator <(Card? a, Card? b)
@@ -58,7 +39,7 @@
                 throw new ArgumentNullException(nameof(b));
             }
 
-            return false;
+            return a.Value < b.Value;
         }
 
         public static bool operator >(Card? a, Card? b)
@@ -73,7 +54,7 @@
                 throw new ArgumentNullException(nameof(b));
             }
 
-            return false;
+            return a.Value > b.Value;
         }
 
         public static bool operator <=(Card? a, Card? b)
@@ -88,7 +69,7 @@
                 throw new ArgumentNullException(nameof(b));
             }
 
-            return false;
+            return a.Value <= b.Value;
         }
 
         public static bool operator >=(Card? a, Card? b)
@@ -103,7 +84,7 @@
                 throw new ArgumentNullException(nameof(b));
             }
 
-            return false;
+            return a.Value >= b.Value;
         }
 
         public override int GetHashCode()
@@ -113,12 +94,12 @@
 
         public bool Equals(Card other)
         {
-            throw new NotImplementedException();
+            return other == this;
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
-            return obj is Card && Equals((Card)obj);
+            return obj is Card card && Equals(card);
         }
     }
 }
