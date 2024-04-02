@@ -1,3 +1,5 @@
+using PokerSimConsole;
+
 namespace Tests
 {
     public class OnePairTest
@@ -5,53 +7,58 @@ namespace Tests
         [Test]
         public void test_true_when_one_pair()
         {
-            //c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "K")
-            //c.flop_2 = Card(Suit.Spade, "K")
-            //c.flop_3 = Card(Suit.Spade, "Q")
-            //c.turn = Card(Suit.Spade, "10")
-            //c.river = Card(Suit.Spade, "9")
-            //h = Hand(Card(Suit.Spade, "8"), Card(Suit.Spade, "7"), c)
-            //self.assertTrue(h.has_one_pair())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop2 = new Card(Suit.Heart, new CardValue(13));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(12));
+            c.Turn = new Card(Suit.Spade, new CardValue(10));
+            c.River = new Card(Suit.Spade, new CardValue(9));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(7)), c);
+
+            var result = h.has_one_pair();
+
+            Assert.That(result, Is.True);
         }
 
         [Test]
         public void test_false_when_two_pair()
         {
-            //c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "K")
-            //c.flop_2 = Card(Suit.Spade, "K")
-            //c.flop_3 = Card(Suit.Spade, "Q")
-            //c.turn = Card(Suit.Spade, "Q")
-            //c.river = Card(Suit.Spade, "9")
-            //h = Hand(Card(Suit.Spade, "8"), Card(Suit.Spade, "7"), c)
-            //self.assertFalse(h.has_one_pair())
+            var c = new CommunityCards
+            {
+                Flop1 = new Card(Suit.Spade, new CardValue(13)),
+                Flop2 = new Card(Suit.Spade, new CardValue(13)),
+                Flop3 = new Card(Suit.Spade, new CardValue(12)),
+                Turn = new Card(Suit.Spade, new CardValue(12)),
+                River = new Card(Suit.Spade, new CardValue(9))
+            };
+            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(7)), c);
+            Assert.IsFalse(h.has_one_pair());
         }
 
         [Test]
         public void test_false_when_zero_pair()
         {
-            //    c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "K")
-            //c.flop_2 = Card(Suit.Spade, "Q")
-            //c.flop_3 = Card(Suit.Spade, "J")
-            //c.turn = Card(Suit.Spade, "10")
-            //c.river = Card(Suit.Spade, "9")
-            //h = Hand(Card(Suit.Spade, "8"), Card(Suit.Spade, "7"), c)
-            //self.assertFalse(h.has_one_pair())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(12));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(11));
+            c.Turn = new Card(Suit.Spade, new CardValue(10));
+            c.River = new Card(Suit.Spade, new CardValue(9));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(7)), c);
+            Assert.IsFalse(h.has_one_pair());
         }
 
         [Test]
         public void test_false_when_3ofakind()
         {
-            //    c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "K")
-            //c.flop_2 = Card(Suit.Spade, "K")
-            //c.flop_3 = Card(Suit.Spade, "K")
-            //c.turn = Card(Suit.Spade, "10")
-            //c.river = Card(Suit.Spade, "9")
-            //h = Hand(Card(Suit.Spade, "8"), Card(Suit.Spade, "7"), c)
-            //self.assertFalse(h.has_one_pair())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(13));
+            c.Turn = new Card(Suit.Spade, new CardValue(10));
+            c.River = new Card(Suit.Spade, new CardValue(9));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(7)), c);
+            Assert.IsFalse(h.has_one_pair());
         }
     }
 
@@ -60,40 +67,40 @@ namespace Tests
         [Test]
         public void test_true_when_two_pair()
         {
-            //c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "K")
-            //c.flop_2 = Card(Suit.Spade, "K")
-            //c.flop_3 = Card(Suit.Spade, "Q")
-            //c.turn = Card(Suit.Spade, "Q")
-            //c.river = Card(Suit.Spade, "9")
-            //h = Hand(Card(Suit.Spade, "8"), Card(Suit.Spade, "7"), c)
-            //self.assertTrue(h.has_two_pair())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(12));
+            c.Turn = new Card(Suit.Spade, new CardValue(12));
+            c.River = new Card(Suit.Spade, new CardValue(9));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(7)), c);
+            Assert.IsTrue(h.has_two_pair());
         }
 
         [Test]
         public void test_false_when_one_pair()
         {
-            //        c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "K")
-            //c.flop_2 = Card(Suit.Spade, "K")
-            //c.flop_3 = Card(Suit.Spade, "Q")
-            //c.turn = Card(Suit.Spade, "2")
-            //c.river = Card(Suit.Spade, "9")
-            //h = Hand(Card(Suit.Spade, "8"), Card(Suit.Spade, "7"), c)
-            //self.assertFalse(h.has_two_pair())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(12));
+            c.Turn = new Card(Suit.Spade, new CardValue(2));
+            c.River = new Card(Suit.Spade, new CardValue(9));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(7)), c);
+            Assert.IsFalse(h.has_two_pair());
         }
 
         [Test]
         public void test_false_when_3ofakind()
         {
-            //        c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "K")
-            //c.flop_2 = Card(Suit.Spade, "K")
-            //c.flop_3 = Card(Suit.Spade, "K")
-            //c.turn = Card(Suit.Spade, "10")
-            //c.river = Card(Suit.Spade, "9")
-            //h = Hand(Card(Suit.Spade, "8"), Card(Suit.Spade, "7"), c)
-            //self.assertFalse(h.has_two_pair())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(13));
+            c.Turn = new Card(Suit.Spade, new CardValue(10));
+            c.River = new Card(Suit.Spade, new CardValue(9));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(7)), c);
+            Assert.IsFalse(h.has_two_pair());
         }
     }
 
@@ -102,40 +109,40 @@ namespace Tests
         [Test]
         public void test_true_when_3_match()
         {
-            //c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "K")
-            //c.flop_2 = Card(Suit.Spade, "K")
-            //c.flop_3 = Card(Suit.Spade, "Q")
-            //c.turn = Card(Suit.Spade, "2")
-            //c.river = Card(Suit.Spade, "9")
-            //h = Hand(Card(Suit.Spade, "K"), Card(Suit.Spade, "7"), c)
-            //self.assertTrue(h.has_three_ofa_kind())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(12));
+            c.Turn = new Card(Suit.Spade, new CardValue(2));
+            c.River = new Card(Suit.Spade, new CardValue(9));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(13)), new Card(Suit.Spade, new CardValue(7)), c);
+            Assert.IsTrue(h.has_three_ofa_kind());
         }
 
         [Test]
         public void test_false_when_3_pairs()
         {
-            //            c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "K")
-            //c.flop_2 = Card(Suit.Spade, "K")
-            //c.flop_3 = Card(Suit.Spade, "Q")
-            //c.turn = Card(Suit.Spade, "Q")
-            //c.river = Card(Suit.Spade, "J")
-            //h = Hand(Card(Suit.Spade, "J"), Card(Suit.Spade, "2"), c)
-            //self.assertFalse(h.has_three_ofa_kind())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(12));
+            c.Turn = new Card(Suit.Spade, new CardValue(12));
+            c.River = new Card(Suit.Spade, new CardValue(11));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(11)), new Card(Suit.Spade, new CardValue(2)), c);
+            Assert.IsFalse(h.has_three_ofa_kind());
         }
 
         [Test]
         public void test_false_when_4_ofa_kind()
         {
-            //            c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "K")
-            //c.flop_2 = Card(Suit.Spade, "K")
-            //c.flop_3 = Card(Suit.Spade, "K")
-            //c.turn = Card(Suit.Spade, "K")
-            //c.river = Card(Suit.Spade, "8")
-            //h = Hand(Card(Suit.Spade, "9"), Card(Suit.Spade, "10"), c)
-            //self.assertFalse(h.has_three_ofa_kind())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(13));
+            c.Turn = new Card(Suit.Spade, new CardValue(13));
+            c.River = new Card(Suit.Spade, new CardValue(8));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(9)), new Card(Suit.Spade, new CardValue(10)), c);
+            Assert.IsFalse(h.has_three_ofa_kind());
         }
     }
 
@@ -144,40 +151,40 @@ namespace Tests
         [Test]
         public void test_true_when_fullhouse()
         {
-            //c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "K")
-            //c.flop_2 = Card(Suit.Spade, "K")
-            //c.flop_3 = Card(Suit.Spade, "K")
-            //c.turn = Card(Suit.Spade, "Q")
-            //c.river = Card(Suit.Spade, "Q")
-            //h = Hand(Card(Suit.Spade, "8"), Card(Suit.Spade, "7"), c)
-            //self.assertTrue(h.has_full_house())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(13));
+            c.Turn = new Card(Suit.Spade, new CardValue(12));
+            c.River = new Card(Suit.Spade, new CardValue(12));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(7)), c);
+            Assert.IsTrue(h.has_full_house());
         }
 
         [Test]
         public void test_true_when_fullhouse_and_extra_match()
         {
-            //                c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "K")
-            //c.flop_2 = Card(Suit.Spade, "K")
-            //c.flop_3 = Card(Suit.Spade, "K")
-            //c.turn = Card(Suit.Spade, "Q")
-            //c.river = Card(Suit.Spade, "Q")
-            //h = Hand(Card(Suit.Spade, "Q"), Card(Suit.Spade, "7"), c)
-            //self.assertTrue(h.has_full_house())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(13));
+            c.Turn = new Card(Suit.Spade, new CardValue(12));
+            c.River = new Card(Suit.Spade, new CardValue(12));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(12)), new Card(Suit.Spade, new CardValue(7)), c);
+            Assert.IsTrue(h.has_full_house());
         }
 
         [Test]
         public void test_false_when_3_ofa_kind()
         {
-            //                c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "K")
-            //c.flop_2 = Card(Suit.Spade, "K")
-            //c.flop_3 = Card(Suit.Spade, "K")
-            //c.turn = Card(Suit.Spade, "10")
-            //c.river = Card(Suit.Spade, "9")
-            //h = Hand(Card(Suit.Spade, "8"), Card(Suit.Spade, "7"), c)
-            //self.assertTrue(h.has_full_house())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(13));
+            c.Turn = new Card(Suit.Spade, new CardValue(10));
+            c.River = new Card(Suit.Spade, new CardValue(9));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(7)), c);
+            Assert.IsTrue(h.has_full_house());
         }
     }
 
@@ -186,27 +193,27 @@ namespace Tests
         [Test]
         public void test_true_when_4_ofa_kind()
         {
-            //c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "K")
-            //c.flop_2 = Card(Suit.Spade, "K")
-            //c.flop_3 = Card(Suit.Spade, "K")
-            //c.turn = Card(Suit.Spade, "K")
-            //c.river = Card(Suit.Spade, "9")
-            //h = Hand(Card(Suit.Spade, "8"), Card(Suit.Spade, "7"), c)
-            //self.assertTrue(h.has_4_ofa_kind())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(13));
+            c.Turn = new Card(Suit.Spade, new CardValue(13));
+            c.River = new Card(Suit.Spade, new CardValue(9));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(7)), c);
+            Assert.IsTrue(h.has_4_ofa_kind());
         }
 
         [Test]
         public void test_true_when_4_ofa_kind_spread()
         {
-            //                    c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "K")
-            //c.flop_2 = Card(Suit.Spade, "J")
-            //c.flop_3 = Card(Suit.Spade, "K")
-            //c.turn = Card(Suit.Spade, "A")
-            //c.river = Card(Suit.Spade, "K")
-            //h = Hand(Card(Suit.Spade, "8"), Card(Suit.Spade, "K"), c)
-            //self.assertTrue(h.has_4_ofa_kind())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(11));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(13));
+            c.Turn = new Card(Suit.Spade, new CardValue(14));
+            c.River = new Card(Suit.Spade, new CardValue(13));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(13)), c);
+            Assert.IsTrue(h.has_4_ofa_kind());
         }
     }
 
@@ -215,40 +222,40 @@ namespace Tests
         [Test]
         public void test_true_when_5card_flush()
         {
-            //c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "K")
-            //c.flop_2 = Card(Suit.Spade, "K")
-            //c.flop_3 = Card(Suit.Spade, "K")
-            //c.turn = Card(Suit.Spade, "K")
-            //c.river = Card(Suit.Spade, "9")
-            //h = Hand(Card(Suit.Heart, "8"), Card(Suit.Heart, "7"), c)
-            //self.assertTrue(h.has_flush())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(13));
+            c.Turn = new Card(Suit.Spade, new CardValue(13));
+            c.River = new Card(Suit.Spade, new CardValue(9));
+            var h = new Hand(new Card(Suit.Heart, new CardValue(8)), new Card(Suit.Heart, new CardValue(7)), c);
+            Assert.IsTrue(h.has_flush());
         }
 
         [Test]
         public void test_true_when_6card_flush()
         {
-            //                        c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "K")
-            //c.flop_2 = Card(Suit.Spade, "K")
-            //c.flop_3 = Card(Suit.Spade, "K")
-            //c.turn = Card(Suit.Spade, "K")
-            //c.river = Card(Suit.Spade, "9")
-            //h = Hand(Card(Suit.Spade, "8"), Card(Suit.Heart, "7"), c)
-            //self.assertTrue(h.has_flush())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(13));
+            c.Turn = new Card(Suit.Spade, new CardValue(13));
+            c.River = new Card(Suit.Spade, new CardValue(9));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Heart, new CardValue(7)), c);
+            Assert.IsTrue(h.has_flush());
         }
 
         [Test]
         public void test_false_when_4card_flush()
         {
-            //                        c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "K")
-            //c.flop_2 = Card(Suit.Spade, "K")
-            //c.flop_3 = Card(Suit.Spade, "K")
-            //c.turn = Card(Suit.Spade, "K")
-            //c.river = Card(Suit.Heart, "9")
-            //h = Hand(Card(Suit.Heart, "8"), Card(Suit.Heart, "7"), c)
-            //self.assertFalse(h.has_flush())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(13));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(13));
+            c.Turn = new Card(Suit.Spade, new CardValue(13));
+            c.River = new Card(Suit.Heart, new CardValue(9));
+            var h = new Hand(new Card(Suit.Heart, new CardValue(8)), new Card(Suit.Heart, new CardValue(7)), c);
+            Assert.IsFalse(h.has_flush());
         }
     }
 
@@ -257,40 +264,40 @@ namespace Tests
         [Test]
         public void test_true_when_sequence()
         {
-            //c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "6")
-            //c.flop_2 = Card(Suit.Spade, "3")
-            //c.flop_3 = Card(Suit.Spade, "4")
-            //c.turn = Card(Suit.Spade, "5")
-            //c.river = Card(Suit.Spade, "2")
-            //h = Hand(Card(Suit.Spade, "K"), Card(Suit.Spade, "K"), c)
-            //self.assertTrue(h.has_straight())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(6));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(3));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(4));
+            c.Turn = new Card(Suit.Spade, new CardValue(5));
+            c.River = new Card(Suit.Spade, new CardValue(2));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(13)), new Card(Suit.Spade, new CardValue(13)), c);
+            Assert.IsTrue(h.has_straight());
         }
 
         [Test]
         public void test_true_when_sequence_with_duplicates()
         {
-            //                            c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "2")
-            //c.flop_2 = Card(Suit.Spade, "3")
-            //c.flop_3 = Card(Suit.Spade, "4")
-            //c.turn = Card(Suit.Spade, "4")
-            //c.river = Card(Suit.Spade, "5")
-            //h = Hand(Card(Suit.Spade, "6"), Card(Suit.Spade, "K"), c)
-            //self.assertTrue(h.has_straight())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(2));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(3));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(4));
+            c.Turn = new Card(Suit.Spade, new CardValue(4));
+            c.River = new Card(Suit.Spade, new CardValue(5));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(6)), new Card(Suit.Spade, new CardValue(13)), c);
+            Assert.IsTrue(h.has_straight());
         }
 
         [Test]
         public void test_false_when_no_sequence()
         {
-            //                            c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "2")
-            //c.flop_2 = Card(Suit.Spade, "3")
-            //c.flop_3 = Card(Suit.Spade, "4")
-            //c.turn = Card(Suit.Spade, "6")
-            //c.river = Card(Suit.Spade, "7")
-            //h = Hand(Card(Suit.Spade, "8"), Card(Suit.Spade, "K"), c)
-            //self.assertFalse(h.has_straight())
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(2));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(3));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(4));
+            c.Turn = new Card(Suit.Spade, new CardValue(6));
+            c.River = new Card(Suit.Spade, new CardValue(7));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(13)), c);
+            Assert.IsFalse(h.has_straight());
         }
     }
 
@@ -299,13 +306,14 @@ namespace Tests
         [Test]
         public void test_false_when_no_sequence()
         {
-            //c = CommunityCards()
-            //c.flop_1 = Card(Suit.Spade, "2")
-            //c.flop_2 = Card(Suit.Spade, "3")
-            //c.flop_3 = Card(Suit.Spade, "4")
-            //c.turn = Card(Suit.Spade, "6")
-            //c.river = Card(Suit.Spade, "7")
-            //h = Hand(Card(Suit.Spade, "8"), Card(Suit.Spa
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Spade, new CardValue(2));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(3));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(4));
+            c.Turn = new Card(Suit.Spade, new CardValue(6));
+            c.River = new Card(Suit.Spade, new CardValue(7));
+            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(13)), c);
+            Assert.IsFalse(h.has_straight());
         }
     }
 
@@ -314,86 +322,86 @@ namespace Tests
         [Test]
         public void test_straight_flush_beats_four_of_a_kind()
         {
-            //                                c = CommunityCards()
-            //                                c.flop_1 = Card(Suit.Club, "2")
-            //                                c.flop_2 = Card(Suit.Spade, "2")
-            //                                c.flop_3 = Card(Suit.Spade, "5")
-            //                                c.turn = Card(Suit.Spade, "6")
-            //                                c.river = Card(Suit.Spade, "7")
-            //                                winner = Hand(Card(Suit.Spade, "8"), Card(Suit.Spade, "9"), c)
-            //                                loser = Hand(Card(Suit.Heart, "2"), Card(Suit.Diamond, "2"), c)
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Club, new CardValue(2));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(2));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(5));
+            c.Turn = new Card(Suit.Spade, new CardValue(6));
+            c.River = new Card(Suit.Spade, new CardValue(7));
+            var winner = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(9)), c);
+            var loser = new Hand(new Card(Suit.Heart, new CardValue(2)), new Card(Suit.Diamond, new CardValue(2)), c);
 
-            //self.assertTrue(winner.get_hand_rank() == hand.StraightFlush)
-            //                                self.assertTrue(loser.get_hand_rank() == hand.FourOfaKind)
+            Assert.IsTrue(winner.get_hand_rank() == HandRank.StraightFlush);
+            Assert.IsTrue(loser.get_hand_rank() == HandRank.FourOfaKind);
 
-            //self.assertGreater(winner, loser)
-            //                                self.assertGreaterEqual(winner, loser)
-            //                                self.assertLess(loser, winner)
-            //                                self.assertLessEqual(loser, winner)
-            //                                self.assertNotEqual(winner, loser)
-
-            //self.assertEqual(winner.get_high_card() == Card(Suit.Spade, "9"))
-            //                                self.assertEqual(loser.get_high_card() == Card(Suit.Spade, "7"))
+            Assert.IsTrue(winner > loser);
+            Assert.IsTrue(winner >= loser);
+            Assert.IsTrue(loser < winner);
+            Assert.IsTrue(loser <= winner);
+            Assert.AreNotEqual(winner, loser);
+            
+            Assert.AreEqual(winner.get_high_card(), new Card(Suit.Spade, new CardValue(9)));
+            Assert.AreEqual(loser.get_high_card(), new Card(Suit.Spade, new CardValue(7)));
         }
 
         [Test]
         public void test_high_cards_when_straight_flush_beats_four_of_a_kind()
         {
-            //                                c = CommunityCards()
-            //c.flop_1 = Card(Suit.Club, "2")
-            //c.flop_2 = Card(Suit.Spade, "2")
-            //c.flop_3 = Card(Suit.Spade, "5")
-            //c.turn = Card(Suit.Spade, "6")
-            //c.river = Card(Suit.Spade, "7")
-            //winner = Hand(Card(Suit.Spade, "8"), Card(Suit.Spade, "9"), c)
-            //loser = Hand(Card(Suit.Heart, "2"), Card(Suit.Diamond, "2"), c)
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Club, new CardValue(2));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(2));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(5));
+            c.Turn = new Card(Suit.Spade, new CardValue(6));
+            c.River = new Card(Suit.Spade, new CardValue(7));
+            var winner = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(9)), c);
+            var loser = new Hand(new Card(Suit.Heart, new CardValue(2)), new Card(Suit.Diamond, new CardValue(2)), c);
 
-            //self.assertEqual(winner.get_high_card() == Card(Suit.Spade, "9"))
-            //self.assertEqual(loser.get_high_card() == Card(Suit.Spade, "7"))
+            Assert.AreEqual(winner.get_high_card(), new Card(Suit.Spade, new CardValue(9)));
+            Assert.AreEqual(loser.get_high_card(), new Card(Suit.Spade, new CardValue(7)));
         }
 
         [Test]
         public void test_4_ofa_kind_beats_full_house()
         {
-            //                                c = CommunityCards()
-            //c.flop_1 = Card(Suit.Club, "2")
-            //c.flop_2 = Card(Suit.Spade, "2")
-            //c.flop_3 = Card(Suit.Spade, "5")
-            //c.turn = Card(Suit.Spade, "6")
-            //c.river = Card(Suit.Spade, "9")
-            //winner = Hand(Card(Suit.Heart, "2"), Card(Suit.Diamond, "2"), c)
-            //loser = Hand(Card(Suit.Spade, "9"), Card(Suit.Spade, "9"), c)
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Club, new CardValue(2));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(2));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(5));
+            c.Turn = new Card(Suit.Spade, new CardValue(6));
+            c.River = new Card(Suit.Spade, new CardValue(9));
+            var winner = new Hand(new Card(Suit.Heart, new CardValue(2)), new Card(Suit.Diamond, new CardValue(2)), c);
+            var loser = new Hand(new Card(Suit.Spade, new CardValue(9)), new Card(Suit.Spade, new CardValue(9)), c);
 
-            //self.assertTrue(winner.get_hand_rank() == hand.FourOfaKind)
-            //self.assertTrue(loser.get_hand_rank() == hand.FullHouse)
+            Assert.IsTrue(winner.get_hand_rank() == HandRank.FourOfaKind);
+            Assert.IsTrue(loser.get_hand_rank() == HandRank.FullHouse);
 
-            //self.assertGreater(winner, loser)
-            //self.assertGreaterEqual(winner, loser)
-            //self.assertLess(loser, winner)
-            //self.assertLessEqual(loser, winner)
-            //self.assertNotEqual(winner, loser)
+            Assert.IsTrue(winner > loser);
+            Assert.IsTrue(winner >= loser);
+            Assert.IsTrue(loser < winner);
+            Assert.IsTrue(loser <= winner);
+            Assert.AreNotEqual(winner, loser);
         }
 
         [Test]
         public void test_full_house_beats_flush()
         {
-            //c = CommunityCards()
-            //c.flop_1 = Card(Suit.Club, "2")
-            //c.flop_2 = Card(Suit.Spade, "2")
-            //c.flop_3 = Card(Suit.Spade, "5")
-            //c.turn = Card(Suit.Spade, "6")
-            //c.river = Card(Suit.Spade, "9")
-            //winner = Hand(Card(Suit.Diamond, "9"), Card(Suit.Heart, "9"), c)
-            //loser = Hand(Card(Suit.Spade, "4"), Card(Suit.Spade, "8"), c)
+            var c = new CommunityCards();
+            c.Flop1 = new Card(Suit.Club, new CardValue(2));
+            c.Flop2 = new Card(Suit.Spade, new CardValue(2));
+            c.Flop3 = new Card(Suit.Spade, new CardValue(5));
+            c.Turn = new Card(Suit.Spade, new CardValue(6));
+            c.River = new Card(Suit.Spade, new CardValue(9));
+            var winner = new Hand(new Card(Suit.Diamond, new CardValue(9)), new Card(Suit.Heart, new CardValue(9)), c);
+            var loser = new Hand(new Card(Suit.Spade, new CardValue(4)), new Card(Suit.Spade, new CardValue(8)), c);
 
-            //self.assertTrue(winner.get_hand_rank() == hand.FullHouse)
-            //self.assertTrue(loser.get_hand_rank() == hand.Flush)
+            Assert.IsTrue(winner.get_hand_rank() == HandRank.FullHouse);
+            Assert.IsTrue(loser.get_hand_rank() == HandRank.Flush);
 
-            //self.assertGreater(winner, loser)
-            //self.assertGreaterEqual(winner, loser)
-            //self.assertLess(loser, winner)
-            //self.assertLessEqual(loser, winner)
-            //self.assertNotEqual(winner, loser)
+            Assert.IsTrue(winner > loser);
+            Assert.IsTrue(winner >= loser);
+            Assert.IsTrue(loser < winner);
+            Assert.IsTrue(loser <= winner);
+            Assert.AreNotEqual(winner, loser);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace PokerSimConsole
 {
-    public class CardValue
+    public class CardValue : IEquatable<CardValue>
     {
         private readonly int value;
 
@@ -32,6 +32,9 @@
 
         public static bool operator <=(CardValue a, CardValue b)
         { return a.value <= b.value; }
+
+        public static int operator - (CardValue a, CardValue b)
+        { return a.value - b.value; }
 
         public bool Equals(CardValue? other)
         {
@@ -65,7 +68,7 @@
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return value;
         }
     }
 }

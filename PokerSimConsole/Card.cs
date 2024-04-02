@@ -1,6 +1,6 @@
 ﻿namespace PokerSimConsole
 {
-    public class Card(Suit suit, CardValue value) : IEquatable<Card>
+    public class Card(Suit suit, CardValue value) : IEquatable<Card>, IComparable<Card>
     {
         private readonly Suit suit = suit;
         private readonly CardValue value = value;
@@ -100,6 +100,12 @@
         public override bool Equals(object? obj)
         {
             return obj is Card card && Equals(card);
+        }
+
+        public int CompareTo(Card? other)
+        {
+            ArgumentNullException.ThrowIfNull(other);
+            return (value - other.value);
         }
     }
 }

@@ -41,13 +41,8 @@
             Cards = new List<Card> { personal1, personal2, community.Flop1, community.Flop2, community.Flop3, community.Turn, community.River };
         }
 
-        // Implement get_hand_rank and other methods as needed, converting Python logic to C#
-
-        // Example of conversion:
-        public HandRank GetHandRank()
+        public HandRank get_hand_rank()
         {
-            // Implement logic to determine the hand rank, converting from Python's if-elif chain
-            // Example:
             if (has_straight_flush())
                 return HandRank.StraightFlush;
             else if (has_4_ofa_kind())
@@ -70,35 +65,42 @@
 
 
 
-        private Card get_high_card()
+        public Card? get_high_card()
         {
-            //# TODO: get the kicker
-            return this.Cards[0];
+            return Cards.Max();
         }
 
         public static bool operator ==(Hand a, Hand b)
         {
-            return false;
+            return (a.get_hand_rank() == b.get_hand_rank());
         }
 
         public static bool operator !=(Hand a, Hand b)
         {
-            return false;
+            return (a.get_hand_rank() != b.get_hand_rank());
         }
 
         public static bool operator <(Hand a, Hand b)
-        { return false; }
+        {
+            return (a.get_hand_rank() < b.get_hand_rank());
+        }
 
         public static bool operator >(Hand a, Hand b)
-        { return false; }
+        {
+            return (a.get_hand_rank() > b.get_hand_rank());
+        }
 
         public static bool operator <=(Hand a, Hand b)
-        { return false; }
+        {
+            return (a.get_hand_rank() <= b.get_hand_rank());
+        }
 
         public static bool operator >=(Hand a, Hand b)
-        { return false; }
+        {
+            return (a.get_hand_rank() >= b.get_hand_rank());
+        }
 
-        private int count_pair_matches()
+        public int count_pair_matches()
         {
             var data = count_value_matches();
             int pairs = 0;
@@ -109,17 +111,17 @@
 
         }
 
-        private bool has_one_pair()
+        public bool has_one_pair()
         {
             return count_pair_matches() == 1;
         }
 
-        private bool has_two_pair()
+        public bool has_two_pair()
         {
             return count_pair_matches() == 2;
         }
 
-        private bool has_three_ofa_kind()
+        public bool has_three_ofa_kind()
         {
             var data = this.count_value_matches();
             foreach (int datum in data.Values)
@@ -128,7 +130,7 @@
             return false;
         }
 
-        private bool has_full_house()
+        public bool has_full_house()
         {
             if (!has_three_ofa_kind())
                 return false;
@@ -139,7 +141,7 @@
             return false;
         }
 
-        private bool has_4_ofa_kind()
+        public bool has_4_ofa_kind()
         {
             var data = this.count_value_matches();
             foreach (int datum in data.Values)
@@ -148,7 +150,7 @@
             return false;
         }
 
-        private Dictionary<CardValue, int> count_value_matches()
+        public Dictionary<CardValue, int> count_value_matches()
         {
             Dictionary<CardValue, int> data = [];
             foreach (Card card in Cards)
@@ -161,7 +163,7 @@
             return data;
         }
 
-        private bool has_flush()
+        public bool has_flush()
         {
             Dictionary<Suit, int> data = [];
             foreach (Card card in Cards)
@@ -178,26 +180,27 @@
             return false;
         }
 
-        private bool has_straight()
+        public bool has_straight()
         {
-            //temp_cards = this.cards.copy()
-            //    temp_cards.sort(key = value_to_int)
+            var temp_Cards = new List<Card>(Cards);
+            temp_Cards.Sort();
+            int count = 0;
+            var l_card = temp_Cards[0];
+            foreach (Card r_card in temp_Cards)
+            { 
+                if ((r_card.Value - l_card.Value) == 1)
+                    count += 1;
+                else if ((r_card.Value - l_card.Value) > 1)
+                    count = 0;
 
-            //    count = 0
-            //    l_card = temp_Cards[0]
-            //    for r_card in temp_Cards[1:]:
-            //        if value_to_int(r_card) - value_to_int(l_card) == 1:
-            //            count += 1
-            //        elif value_to_int(r_card) -value_to_int(l_card) > 1:
-            //            count = 0
-
-            //        if count >= 4:
-            //            return True
-            //        l_card = r_card
+                if (count >= 4)
+                    return true;
+                l_card = r_card;
+            }
             return false;
         }
 
-        private bool has_straight_flush()
+        public bool has_straight_flush()
         {
             return has_straight() && has_flush();
         }
