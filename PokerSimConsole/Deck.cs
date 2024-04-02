@@ -1,9 +1,9 @@
 ﻿namespace PokerSimConsole
 {
-    internal class Deck
+    public class Deck
     {
         private Stack<Card> cards;
-        private static Random rng = new Random();
+        private static readonly Random rng = new();
 
         private Deck()
         {
@@ -17,19 +17,14 @@
             }
         }
 
-        private void Shuffle()
+        public void Shuffle()
         {
             cards = new Stack<Card>([.. cards.OrderBy(_ => rng.Next())]);
         }
 
-        private Card Draw()
+        public Card Draw()
         {
             return cards.Pop();
-        }
-
-        private void Remove(Card card)
-        {
-            //cards.remove(card);
         }
     }
 }

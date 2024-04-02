@@ -32,32 +32,27 @@
         RoyalFlush
     }
 
-    public class Hand
+    public class Hand(Card personal1, Card personal2, CommunityCards community) : IComparable<Hand>
     {
-        private List<Card> Cards { get; set; }
+        private List<Card> Cards { get; set; } = [personal1, personal2, community.Flop1, community.Flop2, community.Flop3, community.Turn, community.River];
 
-        public Hand(Card personal1, Card personal2, CommunityCards community)
+        public HandRank GetHandRank()
         {
-            Cards = new List<Card> { personal1, personal2, community.Flop1, community.Flop2, community.Flop3, community.Turn, community.River };
-        }
-
-        public HandRank get_hand_rank()
-        {
-            if (has_straight_flush())
+            if (HasStraightFlush())
                 return HandRank.StraightFlush;
-            else if (has_4_ofa_kind())
+            else if (Has4OfaKind())
                 return HandRank.FourOfaKind;
-            else if (has_full_house())
+            else if (HasFullHouse())
                 return HandRank.FullHouse;
-            else if (has_flush())
+            else if (HasFlush())
                 return HandRank.Flush;
-            else if (has_straight())
+            else if (HasStraight())
                 return HandRank.Straight;
-            else if (has_three_ofa_kind())
+            else if (HasThreeOfaKind())
                 return HandRank.ThreeOfaKind;
-            else if (has_two_pair())
+            else if (HasTwoPair())
                 return HandRank.TwoPair;
-            else if (has_one_pair())
+            else if (HasOnePair())
                 return HandRank.OnePair;
             else
                 return HandRank.HighCard; // Default return
@@ -65,44 +60,44 @@
 
 
 
-        public Card? get_high_card()
+        public Card? GetHighCard()
         {
             return Cards.Max();
         }
 
         public static bool operator ==(Hand a, Hand b)
         {
-            return (a.get_hand_rank() == b.get_hand_rank());
+            return (a.GetHandRank() == b.GetHandRank());
         }
 
         public static bool operator !=(Hand a, Hand b)
         {
-            return (a.get_hand_rank() != b.get_hand_rank());
+            return (a.GetHandRank() != b.GetHandRank());
         }
 
         public static bool operator <(Hand a, Hand b)
         {
-            return (a.get_hand_rank() < b.get_hand_rank());
+            return (a.GetHandRank() < b.GetHandRank());
         }
 
         public static bool operator >(Hand a, Hand b)
         {
-            return (a.get_hand_rank() > b.get_hand_rank());
+            return (a.GetHandRank() > b.GetHandRank());
         }
 
         public static bool operator <=(Hand a, Hand b)
         {
-            return (a.get_hand_rank() <= b.get_hand_rank());
+            return (a.GetHandRank() <= b.GetHandRank());
         }
 
         public static bool operator >=(Hand a, Hand b)
         {
-            return (a.get_hand_rank() >= b.get_hand_rank());
+            return (a.GetHandRank() >= b.GetHandRank());
         }
 
-        public int count_pair_matches()
+        public int CountPairMatches()
         {
-            var data = count_value_matches();
+            var data = CountValueMatches();
             int pairs = 0;
             foreach (int datum in data.Values)
                 if (datum == 2)
@@ -111,51 +106,51 @@
 
         }
 
-        public bool has_one_pair()
+        public bool HasOnePair()
         {
-            return count_pair_matches() == 1;
+            return CountPairMatches() == 1;
         }
 
-        public bool has_two_pair()
+        public bool HasTwoPair()
         {
-            return count_pair_matches() == 2;
+            return CountPairMatches() == 2;
         }
 
-        public bool has_three_ofa_kind()
+        public bool HasThreeOfaKind()
         {
-            var data = this.count_value_matches();
+            var data = this.CountValueMatches();
             foreach (int datum in data.Values)
                 if (datum == 3)
                     return true;
             return false;
         }
 
-        public bool has_full_house()
+        public bool HasFullHouse()
         {
-            if (!has_three_ofa_kind())
+            if (!HasThreeOfaKind())
                 return false;
-            var data = this.count_value_matches();
+            var data = this.CountValueMatches();
             foreach (int datum in data.Values)
                 if (datum > 1)
                     return true;
             return false;
         }
 
-        public bool has_4_ofa_kind()
+        public bool Has4OfaKind()
         {
-            var data = this.count_value_matches();
+            var data = this.CountValueMatches();
             foreach (int datum in data.Values)
                 if (datum == 4)
                     return true;
             return false;
         }
 
-        public Dictionary<CardValue, int> count_value_matches()
+        public Dictionary<CardValue, int> CountValueMatches()
         {
             Dictionary<CardValue, int> data = [];
             foreach (Card card in Cards)
             {
-                if (data.Keys.Contains(card.Value))
+                if (data.ContainsKey(card.Value))
                     data[card.Value] += 1;
                 else
                     data[card.Value] = 1;
@@ -163,12 +158,12 @@
             return data;
         }
 
-        public bool has_flush()
+        public bool HasFlush()
         {
             Dictionary<Suit, int> data = [];
             foreach (Card card in Cards)
             {
-                if (data.Keys.Contains(card.Suit))
+                if (data.ContainsKey(card.Suit))
                     data[card.Suit] += 1;
                 else
                     data[card.Suit] = 1;
@@ -180,7 +175,7 @@
             return false;
         }
 
-        public bool has_straight()
+        public bool HasStraight()
         {
             var temp_Cards = new List<Card>(Cards);
             temp_Cards.Sort();
@@ -200,9 +195,9 @@
             return false;
         }
 
-        public bool has_straight_flush()
+        public bool HasStraightFlush()
         {
-            return has_straight() && has_flush();
+            return HasStraight() && HasFlush();
         }
 
         public override bool Equals(object? obj)
@@ -223,6 +218,13 @@
         public override int GetHashCode()
         {
             throw new NotImplementedException();
+        }
+
+        public int CompareTo(Hand? other)
+        {
+            ArgumentNullException.ThrowIfNull(other);
+            if (this == other) return 0;
+            return (this > other) ? 1 : -1;
         }
     }
 }

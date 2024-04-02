@@ -29,72 +29,40 @@
 
         public static bool operator <(Card? a, Card? b)
         {
-            if (a is null)
-            {
-                throw new ArgumentNullException(nameof(a));
-            }
-
-            if (b is null)
-            {
-                throw new ArgumentNullException(nameof(b));
-            }
-
+            ArgumentNullException.ThrowIfNull(a);
+            ArgumentNullException.ThrowIfNull(b);
             return a.Value < b.Value;
         }
 
         public static bool operator >(Card? a, Card? b)
         {
-            if (a is null)
-            {
-                throw new ArgumentNullException(nameof(a));
-            }
-
-            if (b is null)
-            {
-                throw new ArgumentNullException(nameof(b));
-            }
-
+            ArgumentNullException.ThrowIfNull(a);
+            ArgumentNullException.ThrowIfNull(b);
             return a.Value > b.Value;
         }
 
         public static bool operator <=(Card? a, Card? b)
         {
-            if (a is null)
-            {
-                throw new ArgumentNullException(nameof(a));
-            }
-
-            if (b is null)
-            {
-                throw new ArgumentNullException(nameof(b));
-            }
-
+            ArgumentNullException.ThrowIfNull(a);
+            ArgumentNullException.ThrowIfNull(b);
             return a.Value <= b.Value;
         }
 
         public static bool operator >=(Card? a, Card? b)
         {
-            if (a is null)
-            {
-                throw new ArgumentNullException(nameof(a));
-            }
-
-            if (b is null)
-            {
-                throw new ArgumentNullException(nameof(b));
-            }
-
+            ArgumentNullException.ThrowIfNull(a);
+            ArgumentNullException.ThrowIfNull(b);
             return a.Value >= b.Value;
         }
 
         public override int GetHashCode()
         {
-            throw new NotImplementedException();
+            return HashCode.Combine(Value, Suit);
         }
 
-        public bool Equals(Card other)
+        public bool Equals(Card? other)
         {
-            return other == this;
+            return other is not null && other == this;
         }
 
         public override bool Equals(object? obj)
