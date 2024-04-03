@@ -1,11 +1,11 @@
 using PokerSimConsole;
 
-namespace Tests
+namespace HandDetection
 {
-    public class OnePairTest
+    public class HasOnePair
     {
         [Test]
-        public void TestTrueWhenOnePair()
+        public void HasOnePair_When_TwoKingsAndTheRestDontMatch()
         {
             var c = new CommunityCards
             {
@@ -23,7 +23,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test_false_when_two_pair()
+        public void False_When_TwoPair()
         {
             var c = new CommunityCards
             {
@@ -38,7 +38,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test_false_when_zero_pair()
+        public void False_When_ZeroPair()
         {
             var c = new CommunityCards
             {
@@ -53,7 +53,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test_false_when_3ofakind()
+        public void False_When_3ofakind()
         {
             var c = new CommunityCards
             {
@@ -71,7 +71,7 @@ namespace Tests
     internal class TwoPairTest
     {
         [Test]
-        public void Test_true_when_two_pair()
+        public void True_When_TwoPair()
         {
             var c = new CommunityCards
             {
@@ -86,7 +86,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test_false_when_one_pair()
+        public void False_When_OnePair()
         {
             var c = new CommunityCards
             {
@@ -101,7 +101,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test_false_when_3ofakind()
+        public void False_When_3OfAKind()
         {
             var c = new CommunityCards
             {
@@ -119,7 +119,7 @@ namespace Tests
     internal class ThreeOfaKindTest
     {
         [Test]
-        public void Test_true_when_3_match()
+        public void True_When_3Match()
         {
             var c = new CommunityCards
             {
@@ -134,7 +134,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test_false_when_3_pairs()
+        public void False_When_3Pairs()
         {
             var c = new CommunityCards
             {
@@ -149,7 +149,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test_false_when_4_ofa_kind()
+        public void False_When_4OfAKind()
         {
             var c = new CommunityCards
             {
@@ -167,37 +167,37 @@ namespace Tests
     internal class FullHouseTest
     {
         [Test]
-        public void Test_true_when_fullhouse()
+        public void HasFullHouse_When_3KingsAnd2Queens()
         {
             var c = new CommunityCards
             {
                 Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Spade, new CardValue(13)),
-                Flop3 = new Card(Suit.Spade, new CardValue(13)),
+                Flop2 = new Card(Suit.Heart, new CardValue(13)),
+                Flop3 = new Card(Suit.Club, new CardValue(13)),
                 Turn = new Card(Suit.Spade, new CardValue(12)),
-                River = new Card(Suit.Spade, new CardValue(12))
+                River = new Card(Suit.Heart, new CardValue(12))
             };
             var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(7)), c);
             Assert.That(h.HasFullHouse(), Is.True);
         }
 
         [Test]
-        public void Test_true_when_fullhouse_and_extra_match()
+        public void HasFullHouse_When_3KingsAnd3Queens()
         {
             var c = new CommunityCards
             {
                 Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Spade, new CardValue(13)),
-                Flop3 = new Card(Suit.Spade, new CardValue(13)),
+                Flop2 = new Card(Suit.Heart, new CardValue(13)),
+                Flop3 = new Card(Suit.Club, new CardValue(13)),
                 Turn = new Card(Suit.Spade, new CardValue(12)),
-                River = new Card(Suit.Spade, new CardValue(12))
+                River = new Card(Suit.Heart, new CardValue(12))
             };
             var h = new Hand(new Card(Suit.Spade, new CardValue(12)), new Card(Suit.Spade, new CardValue(7)), c);
             Assert.That(h.HasFullHouse(), Is.True);
         }
 
         [Test]
-        public void Test_false_when_3_ofa_kind()
+        public void False_When_3OfAKind()
         {
             var c = new CommunityCards
             {
@@ -212,10 +212,10 @@ namespace Tests
         }
     }
 
-    public class FourOfaKindTest
+    public class FourOfaKind
     {
         [Test]
-        public void Test_true_when_4_ofa_kind()
+        public void True_When_4OfaKind()
         {
             var c = new CommunityCards
             {
@@ -230,7 +230,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test_true_when_4_ofa_kind_spread()
+        public void True_When_4OfaKindSpread()
         {
             var c = new CommunityCards
             {
@@ -245,10 +245,10 @@ namespace Tests
         }
     }
 
-    internal class FlushTest
+    internal class HasFlush
     {
         [Test]
-        public void Test_true_when_5card_flush()
+        public void HasFlush_When_5cardFlush()
         {
             var c = new CommunityCards
             {
@@ -263,7 +263,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test_true_when_6card_flush()
+        public void HasFlush_When_6CardFlush()
         {
             var c = new CommunityCards
             {
@@ -278,7 +278,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test_false_when_4card_flush()
+        public void NoFlush_When_4CardFlush()
         {
             var c = new CommunityCards
             {
@@ -296,7 +296,7 @@ namespace Tests
     internal class StraightTest
     {
         [Test]
-        public void Test_true_when_sequence()
+        public void True_When_Sequence()
         {
             var c = new CommunityCards
             {
@@ -311,7 +311,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test_true_when_sequence_with_duplicates()
+        public void True_When_SequenceWithDuplicates()
         {
             var c = new CommunityCards
             {
@@ -326,7 +326,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test_false_when_no_sequence()
+        public void False_When_NoSequence()
         {
             var c = new CommunityCards
             {
@@ -344,7 +344,7 @@ namespace Tests
     internal class StraightFlushTest
     {
         [Test]
-        public void Test_false_when_no_sequence()
+        public void False_When_NoSequence()
         {
             var c = new CommunityCards
             {
@@ -358,11 +358,13 @@ namespace Tests
             Assert.That(h.HasStraight(), Is.False);
         }
     }
-
+}
+namespace HandRanking 
+{ 
     internal class HardRankings
     {
         [Test]
-        public void Test_straight_flush_beats_four_of_a_kind()
+        public void StraightFlushBeatsFourOfAKind()
         {
             var c = new CommunityCards
             {
@@ -390,7 +392,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test_high_cards_when_straight_flush_beats_four_of_a_kind()
+        public void HighCardWins_When_StraightFlushBeatsFourOfAKind()
         {
             var c = new CommunityCards
             {
@@ -410,7 +412,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test_4_ofa_kind_beats_full_house()
+        public void FourOfAKindBeatsFullHouse()
         {
             var c = new CommunityCards
             {
@@ -436,7 +438,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test_full_house_beats_flush()
+        public void FullHouseBeatsFlush()
         {
             var c = new CommunityCards
             {

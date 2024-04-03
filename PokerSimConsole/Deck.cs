@@ -2,29 +2,36 @@
 {
     public class Deck
     {
-        private Stack<Card> cards;
+        private List<Card> cards;
         private static readonly Random rng = new();
 
-        private Deck()
+        public Deck()
         {
-            cards = new Stack<Card>();
+            cards = new List<Card>();
             foreach (Suit suit in Enum.GetValues(typeof(Suit)))
             {
                 for (int i = 2; i < 14; i++)
                 {
-                    cards.Push(new Card(suit, new CardValue(i)));
+                    cards.Add(new Card(suit, new CardValue(i)));
                 }
             }
         }
 
         public void Shuffle()
         {
-            cards = new Stack<Card>([.. cards.OrderBy(_ => rng.Next())]);
+            cards = new List<Card>([.. cards.OrderBy(_ => rng.Next())]);
         }
 
         public Card Draw()
         {
-            return cards.Pop();
+            var result = cards.First();
+            Remove(result);
+            return result;
+        }
+
+        public void Remove(Card card)
+        {
+            cards.Remove(card);
         }
     }
 }

@@ -3,3 +3,5 @@ PokerSimConsole/bin/
 PokerSimConsole/obj/
 Tests/obj/
 Tests/bin/
+*.user
+PokerSimConsole/Properties/

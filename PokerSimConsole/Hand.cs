@@ -18,20 +18,6 @@
         }
     }
 
-    public enum HandRank
-    {
-        HighCard,
-        OnePair,
-        TwoPair,
-        ThreeOfaKind,
-        Straight,
-        Flush,
-        FullHouse,
-        FourOfaKind,
-        StraightFlush,
-        RoyalFlush
-    }
-
     public class Hand(Card personal1, Card personal2, CommunityCards community) : IComparable<Hand>
     {
         private List<Card> Cards { get; set; } = [personal1, personal2, community.Flop1, community.Flop2, community.Flop3, community.Turn, community.River];
