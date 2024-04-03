@@ -9,9 +9,9 @@ namespace HandDetection
         {
             var c = new CommunityCards
             {
-                Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Heart, new CardValue(13)),
-                Flop3 = new Card(Suit.Spade, new CardValue(12)),
+                Flop1 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop2 = new Card(Suit.Heart, new CardValue(CardValue.King)),
+                Flop3 = new Card(Suit.Spade, new CardValue(CardValue.Queen)),
                 Turn = new Card(Suit.Spade, new CardValue(10)),
                 River = new Card(Suit.Spade, new CardValue(9))
             };
@@ -27,10 +27,10 @@ namespace HandDetection
         {
             var c = new CommunityCards
             {
-                Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Spade, new CardValue(13)),
-                Flop3 = new Card(Suit.Spade, new CardValue(12)),
-                Turn = new Card(Suit.Spade, new CardValue(12)),
+                Flop1 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop2 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop3 = new Card(Suit.Spade, new CardValue(CardValue.Queen)),
+                Turn = new Card(Suit.Spade, new CardValue(CardValue.Queen)),
                 River = new Card(Suit.Spade, new CardValue(9))
             };
             var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(7)), c);
@@ -42,9 +42,9 @@ namespace HandDetection
         {
             var c = new CommunityCards
             {
-                Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Spade, new CardValue(12)),
-                Flop3 = new Card(Suit.Spade, new CardValue(11)),
+                Flop1 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop2 = new Card(Suit.Spade, new CardValue(CardValue.Queen)),
+                Flop3 = new Card(Suit.Spade, new CardValue(CardValue.Jack)),
                 Turn = new Card(Suit.Spade, new CardValue(10)),
                 River = new Card(Suit.Spade, new CardValue(9))
             };
@@ -57,9 +57,9 @@ namespace HandDetection
         {
             var c = new CommunityCards
             {
-                Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Spade, new CardValue(13)),
-                Flop3 = new Card(Suit.Spade, new CardValue(13)),
+                Flop1 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop2 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop3 = new Card(Suit.Spade, new CardValue(CardValue.King)),
                 Turn = new Card(Suit.Spade, new CardValue(10)),
                 River = new Card(Suit.Spade, new CardValue(9))
             };
@@ -75,10 +75,10 @@ namespace HandDetection
         {
             var c = new CommunityCards
             {
-                Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Spade, new CardValue(13)),
-                Flop3 = new Card(Suit.Spade, new CardValue(12)),
-                Turn = new Card(Suit.Spade, new CardValue(12)),
+                Flop1 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop2 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop3 = new Card(Suit.Spade, new CardValue(CardValue.Queen)),
+                Turn = new Card(Suit.Spade, new CardValue(CardValue.Queen)),
                 River = new Card(Suit.Spade, new CardValue(9))
             };
             var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(7)), c);
@@ -90,9 +90,9 @@ namespace HandDetection
         {
             var c = new CommunityCards
             {
-                Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Spade, new CardValue(13)),
-                Flop3 = new Card(Suit.Spade, new CardValue(12)),
+                Flop1 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop2 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop3 = new Card(Suit.Spade, new CardValue(CardValue.Queen)),
                 Turn = new Card(Suit.Spade, new CardValue(2)),
                 River = new Card(Suit.Spade, new CardValue(9))
             };
@@ -105,9 +105,9 @@ namespace HandDetection
         {
             var c = new CommunityCards
             {
-                Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Spade, new CardValue(13)),
-                Flop3 = new Card(Suit.Spade, new CardValue(13)),
+                Flop1 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop2 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop3 = new Card(Suit.Spade, new CardValue(CardValue.King)),
                 Turn = new Card(Suit.Spade, new CardValue(10)),
                 River = new Card(Suit.Spade, new CardValue(9))
             };
@@ -123,13 +123,13 @@ namespace HandDetection
         {
             var c = new CommunityCards
             {
-                Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Spade, new CardValue(13)),
-                Flop3 = new Card(Suit.Spade, new CardValue(12)),
+                Flop1 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop2 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop3 = new Card(Suit.Spade, new CardValue(CardValue.Queen)),
                 Turn = new Card(Suit.Spade, new CardValue(2)),
                 River = new Card(Suit.Spade, new CardValue(9))
             };
-            var h = new Hand(new Card(Suit.Spade, new CardValue(13)), new Card(Suit.Spade, new CardValue(7)), c);
+            var h = new Hand(new Card(Suit.Spade, new CardValue(CardValue.King)), new Card(Suit.Spade, new CardValue(7)), c);
             Assert.That(h.HasThreeOfaKind(), Is.True);
         }
 
@@ -138,13 +138,13 @@ namespace HandDetection
         {
             var c = new CommunityCards
             {
-                Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Spade, new CardValue(13)),
-                Flop3 = new Card(Suit.Spade, new CardValue(12)),
-                Turn = new Card(Suit.Spade, new CardValue(12)),
-                River = new Card(Suit.Spade, new CardValue(11))
+                Flop1 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop2 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop3 = new Card(Suit.Spade, new CardValue(CardValue.Queen)),
+                Turn = new Card(Suit.Spade, new CardValue(CardValue.Queen)),
+                River = new Card(Suit.Spade, new CardValue(CardValue.Jack))
             };
-            var h = new Hand(new Card(Suit.Spade, new CardValue(11)), new Card(Suit.Spade, new CardValue(2)), c);
+            var h = new Hand(new Card(Suit.Spade, new CardValue(CardValue.Jack)), new Card(Suit.Spade, new CardValue(2)), c);
             Assert.That(h.HasThreeOfaKind(), Is.False);
         }
 
@@ -153,10 +153,10 @@ namespace HandDetection
         {
             var c = new CommunityCards
             {
-                Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Spade, new CardValue(13)),
-                Flop3 = new Card(Suit.Spade, new CardValue(13)),
-                Turn = new Card(Suit.Spade, new CardValue(13)),
+                Flop1 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop2 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop3 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Turn = new Card(Suit.Spade, new CardValue(CardValue.King)),
                 River = new Card(Suit.Spade, new CardValue(8))
             };
             var h = new Hand(new Card(Suit.Spade, new CardValue(9)), new Card(Suit.Spade, new CardValue(10)), c);
@@ -171,11 +171,11 @@ namespace HandDetection
         {
             var c = new CommunityCards
             {
-                Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Heart, new CardValue(13)),
-                Flop3 = new Card(Suit.Club, new CardValue(13)),
-                Turn = new Card(Suit.Spade, new CardValue(12)),
-                River = new Card(Suit.Heart, new CardValue(12))
+                Flop1 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop2 = new Card(Suit.Heart, new CardValue(CardValue.King)),
+                Flop3 = new Card(Suit.Club, new CardValue(CardValue.King)),
+                Turn = new Card(Suit.Spade, new CardValue(CardValue.Queen)),
+                River = new Card(Suit.Heart, new CardValue(CardValue.Queen))
             };
             var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(7)), c);
             Assert.That(h.HasFullHouse(), Is.True);
@@ -186,13 +186,13 @@ namespace HandDetection
         {
             var c = new CommunityCards
             {
-                Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Heart, new CardValue(13)),
-                Flop3 = new Card(Suit.Club, new CardValue(13)),
-                Turn = new Card(Suit.Spade, new CardValue(12)),
-                River = new Card(Suit.Heart, new CardValue(12))
+                Flop1 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop2 = new Card(Suit.Heart, new CardValue(CardValue.King)),
+                Flop3 = new Card(Suit.Club, new CardValue(CardValue.King)),
+                Turn = new Card(Suit.Spade, new CardValue(CardValue.Queen)),
+                River = new Card(Suit.Heart, new CardValue(CardValue.Queen))
             };
-            var h = new Hand(new Card(Suit.Spade, new CardValue(12)), new Card(Suit.Spade, new CardValue(7)), c);
+            var h = new Hand(new Card(Suit.Spade, new CardValue(CardValue.Queen)), new Card(Suit.Spade, new CardValue(7)), c);
             Assert.That(h.HasFullHouse(), Is.True);
         }
 
@@ -201,9 +201,9 @@ namespace HandDetection
         {
             var c = new CommunityCards
             {
-                Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Spade, new CardValue(13)),
-                Flop3 = new Card(Suit.Spade, new CardValue(13)),
+                Flop1 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop2 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop3 = new Card(Suit.Spade, new CardValue(CardValue.King)),
                 Turn = new Card(Suit.Spade, new CardValue(10)),
                 River = new Card(Suit.Spade, new CardValue(9))
             };
@@ -219,10 +219,10 @@ namespace HandDetection
         {
             var c = new CommunityCards
             {
-                Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Spade, new CardValue(13)),
-                Flop3 = new Card(Suit.Spade, new CardValue(13)),
-                Turn = new Card(Suit.Spade, new CardValue(13)),
+                Flop1 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop2 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop3 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Turn = new Card(Suit.Spade, new CardValue(CardValue.King)),
                 River = new Card(Suit.Spade, new CardValue(9))
             };
             var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(7)), c);
@@ -234,13 +234,13 @@ namespace HandDetection
         {
             var c = new CommunityCards
             {
-                Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Spade, new CardValue(11)),
-                Flop3 = new Card(Suit.Spade, new CardValue(13)),
-                Turn = new Card(Suit.Spade, new CardValue(14)),
-                River = new Card(Suit.Spade, new CardValue(13))
+                Flop1 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop2 = new Card(Suit.Spade, new CardValue(CardValue.Jack)),
+                Flop3 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Turn = new Card(Suit.Spade, new CardValue(CardValue.Ace)),
+                River = new Card(Suit.Spade, new CardValue(CardValue.King))
             };
-            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(13)), c);
+            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(CardValue.King)), c);
             Assert.That(h.Has4OfaKind(), Is.True);
         }
     }
@@ -252,10 +252,10 @@ namespace HandDetection
         {
             var c = new CommunityCards
             {
-                Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Spade, new CardValue(13)),
-                Flop3 = new Card(Suit.Spade, new CardValue(13)),
-                Turn = new Card(Suit.Spade, new CardValue(13)),
+                Flop1 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop2 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop3 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Turn = new Card(Suit.Spade, new CardValue(CardValue.King)),
                 River = new Card(Suit.Spade, new CardValue(9))
             };
             var h = new Hand(new Card(Suit.Heart, new CardValue(8)), new Card(Suit.Heart, new CardValue(7)), c);
@@ -267,10 +267,10 @@ namespace HandDetection
         {
             var c = new CommunityCards
             {
-                Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Spade, new CardValue(13)),
-                Flop3 = new Card(Suit.Spade, new CardValue(13)),
-                Turn = new Card(Suit.Spade, new CardValue(13)),
+                Flop1 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop2 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop3 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Turn = new Card(Suit.Spade, new CardValue(CardValue.King)),
                 River = new Card(Suit.Spade, new CardValue(9))
             };
             var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Heart, new CardValue(7)), c);
@@ -282,10 +282,10 @@ namespace HandDetection
         {
             var c = new CommunityCards
             {
-                Flop1 = new Card(Suit.Spade, new CardValue(13)),
-                Flop2 = new Card(Suit.Spade, new CardValue(13)),
-                Flop3 = new Card(Suit.Spade, new CardValue(13)),
-                Turn = new Card(Suit.Spade, new CardValue(13)),
+                Flop1 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop2 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Flop3 = new Card(Suit.Spade, new CardValue(CardValue.King)),
+                Turn = new Card(Suit.Spade, new CardValue(CardValue.King)),
                 River = new Card(Suit.Heart, new CardValue(9))
             };
             var h = new Hand(new Card(Suit.Heart, new CardValue(8)), new Card(Suit.Heart, new CardValue(7)), c);
@@ -306,7 +306,7 @@ namespace HandDetection
                 Turn = new Card(Suit.Spade, new CardValue(5)),
                 River = new Card(Suit.Spade, new CardValue(2))
             };
-            var h = new Hand(new Card(Suit.Spade, new CardValue(13)), new Card(Suit.Spade, new CardValue(13)), c);
+            var h = new Hand(new Card(Suit.Spade, new CardValue(CardValue.King)), new Card(Suit.Spade, new CardValue(CardValue.King)), c);
             Assert.That(h.HasStraight(), Is.True);
         }
 
@@ -321,7 +321,22 @@ namespace HandDetection
                 Turn = new Card(Suit.Spade, new CardValue(4)),
                 River = new Card(Suit.Spade, new CardValue(5))
             };
-            var h = new Hand(new Card(Suit.Spade, new CardValue(6)), new Card(Suit.Spade, new CardValue(13)), c);
+            var h = new Hand(new Card(Suit.Spade, new CardValue(6)), new Card(Suit.Spade, new CardValue(CardValue.King)), c);
+            Assert.That(h.HasStraight(), Is.True);
+        }
+
+        [Test]
+        public void True_When_SequenceWithAceAsOne()
+        {
+            var c = new CommunityCards
+            {
+                Flop1 = new Card(Suit.Spade, new CardValue(2)),
+                Flop2 = new Card(Suit.Spade, new CardValue(3)),
+                Flop3 = new Card(Suit.Spade, new CardValue(4)),
+                Turn = new Card(Suit.Spade, new CardValue(5)),
+                River = new Card(Suit.Spade, new CardValue(CardValue.Ace))
+            };
+            var h = new Hand(new Card(Suit.Spade, new CardValue(CardValue.Queen)), new Card(Suit.Spade, new CardValue(CardValue.King)), c);
             Assert.That(h.HasStraight(), Is.True);
         }
 
@@ -336,7 +351,7 @@ namespace HandDetection
                 Turn = new Card(Suit.Spade, new CardValue(6)),
                 River = new Card(Suit.Spade, new CardValue(7))
             };
-            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(13)), c);
+            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(CardValue.King)), c);
             Assert.That(h.HasStraight(), Is.False);
         }
     }
@@ -354,7 +369,7 @@ namespace HandDetection
                 Turn = new Card(Suit.Spade, new CardValue(6)),
                 River = new Card(Suit.Spade, new CardValue(7))
             };
-            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(13)), c);
+            var h = new Hand(new Card(Suit.Spade, new CardValue(8)), new Card(Suit.Spade, new CardValue(CardValue.King)), c);
             Assert.That(h.HasStraight(), Is.False);
         }
     }

@@ -167,16 +167,54 @@
             temp_Cards.Sort();
             int count = 0;
             var l_card = temp_Cards[0];
+            bool has_ace = false;
             foreach (Card r_card in temp_Cards)
             { 
-                if ((r_card.Value - l_card.Value) == 1)
-                    count += 1;
-                else if ((r_card.Value - l_card.Value) > 1)
-                    count = 0;
+                if (r_card.Value == CardValue.Ace) 
+                { 
+                    has_ace = true; 
+                }
 
+                if ((r_card.Value - l_card.Value) == 1)
+                {
+                    count += 1;
+                }
+                else if ((r_card.Value - l_card.Value) > 1)
+                {
+                    count = 0;
+                }
                 if (count >= 4)
+                {
                     return true;
+                }
+
                 l_card = r_card;
+            }
+
+            if (has_ace)
+            {
+                temp_Cards = new List<Card>(Cards);
+                temp_Cards.Sort();
+                count = 0;
+                l_card = temp_Cards[0];
+                foreach (Card r_card in temp_Cards)
+                {
+                    if ((r_card.Value - l_card.Value) == 1)
+                    {
+                        count += 1;
+                    }
+                    else if ((r_card.Value - l_card.Value) > 1)
+                    {
+                        count = 0;
+                    }
+                    if (count >= 3)
+                    {
+                        if (l_card.Value == 4)
+                            return true;
+                    }
+
+                    l_card = r_card;
+                }
             }
             return false;
         }

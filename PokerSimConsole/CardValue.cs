@@ -1,7 +1,13 @@
 ﻿namespace PokerSimConsole
 {
+    
     public class CardValue : IEquatable<CardValue>
     {
+        public const int Ace = 14;
+        public const int King = 13;
+        public const int Queen = 12;
+        public const int Jack = 11;
+
         private readonly int value;
 
         public CardValue(int value)
@@ -20,6 +26,12 @@
 
         public static bool operator !=(CardValue a, CardValue b)
         { return !a.Equals(b); }
+
+        public static bool operator ==(CardValue a, int b)
+        { return a.value == b; }
+
+        public static bool operator !=(CardValue a, int b)
+        { return a.value != b; }
 
         public static bool operator <(CardValue a, CardValue b)
         { return a.value < b.value; }
